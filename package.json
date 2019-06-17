@@ -1,0 +1,24 @@
+{
+  "name": "node-red-contrib-pointer",
+  "node-red": {
+    "nodes": {
+      "pointer": "./src/pointer.js"
+    }
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diglopes/node-red-contrib-pointer.git"
+  },
+  "author": "Diego Lopes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diglopes/node-red-contrib-pointer/issues"
+  },
+  "homepage": "https://github.com/diglopes/node-red-contrib-pointer#readme"
+}
