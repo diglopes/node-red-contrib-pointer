@@ -5,6 +5,9 @@
         defaults: {
             name: {
                 value: ""
+            },
+            smsType: {
+                value: "single-sms"
             }
         },
         credentials: {
@@ -31,11 +34,18 @@
 <script type="text/x-red" data-template-name="pointer">
     <div class="form-row">
         <label for="node-input-user"><i class="fa fa-user"></i> User</label>
-        <input type="text" id="node-input-user" placeholder="username">
+        <input type="text" id="node-input-user" placeholder="API username">
     </div>
     <div class="form-row">
         <label for="node-input-password"><i class="fa fa-key"></i> Password</label>
-        <input type="password" id="node-input-password" placeholder="Password">
+        <input type="password" id="node-input-password" placeholder="API password">
+    </div>
+    <div class="form-row">
+        <label for="node-input-smsType">Type of sending</label>
+        <select type="text" id="node-input-smsType">
+            <option value="single-sms">Single SMS</option>
+            <option value="multiple-sms">Multiple SMS</option>
+        </select>
     </div>
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
