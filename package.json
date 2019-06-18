@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/diglopes/node-red-contrib-pointer/issues"
   },
-  "homepage": "https://github.com/diglopes/node-red-contrib-pointer#readme"
+  "homepage": "https://github.com/diglopes/node-red-contrib-pointer#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "js-base64": "^2.5.1"
+  }
 }
