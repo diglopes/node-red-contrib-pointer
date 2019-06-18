@@ -5,32 +5,31 @@ module.exports = function(RED) {
   function Pointer(config) {
     RED.nodes.createNode(this, config);
     const node = this;
+    node.smsType = config.smsType;
     const user = node.credentials.user;
     const password = node.credentials.password;
 
-    node.on("input", async msg => {
-      const token = Base64.encode(`${user}:${password}`);
+    const token = Base64.encode(`${user}:${password}`);
 
+    const headers = {
+      headers: {
+        Authorization: `Basic ${token}`,
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache"
+      }
+    };
+
+    node.on("input", async msg => {
       try {
-        msg.payload = await api.post(
-          "single-sms",
-          {
-            to: msg.payload.to,
-            message: msg.payload.message
-          },
-          {
-            headers: {
-              Authorization: `Basic ${token}`,
-              "Content-Type": "application/json",
-              "Cache-Control": "no-cache"
-            }
-          }
-        );
+        if (node.smsType === "multiple-sms") {
+          msg.payload = { messages: msg.payload };
+        }
+        msg.payload = await api.post(node.smsType, msg.payload, headers);
+
+        node.send(msg);
       } catch (error) {
         node.error(error);
       }
-
-      node.send(msg);
     });
   }
   RED.nodes.registerType("pointer", Pointer, {
