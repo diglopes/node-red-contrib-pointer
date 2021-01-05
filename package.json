@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/diglopes/node-red-contrib-pointer#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "js-base64": "^2.5.1"
   }
 }
